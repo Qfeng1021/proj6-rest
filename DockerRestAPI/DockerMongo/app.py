@@ -13,8 +13,9 @@ app = flask.Flask(__name__)
 CONFIG = config.configuration()
 app.secret_key = CONFIG.SECRET_KEY
 
-client = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'], 27017)
+client = MongoClient("db", 27017)
 db = client.tododb
+
 
 '''@app.route('/')
 def todo():
